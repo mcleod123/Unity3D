@@ -1,0 +1,95 @@
+Plstformer
+
+Player : Character
+- Weapon
+- Fire()
+- List<Buffs>
+- AddBuff
+
+- LocomotionSystem()
+
+Enemy : Character
+
+ 
+Character
+ - HealthPoint
+ - ManaPoint
+ - Lives
+ - MovementSpeed
+ - JumpForce
+
+MiniMap
+	MinimapElements 
+	{
+		Doors,
+		Characters,
+		...
+	}
+	
+Level
+ - MiniMap
+	-RecieveTime
+ - level completation logic
+
+Inventory
+ IItem
+ {
+	int ID
+	int count
+	bool Stack
+	string Name
+ }
+ 
+ AddItem(IItem, int count)
+
+//Equipment
+
+Weapon
+- DelayBeforeAttack
+- FireRate
+- Fire()
+
+WeaponTypeByAttack
+{
+	Melle,
+	Range
+}
+
+MelleType
+{
+	Polearm,
+	Sword
+}
+
+RangeType
+{
+	Magic,
+	Bow
+}
+
+StatusBar
+
+Buff
+
+BuffType
+ -Positive
+ -Negative
+ 
+HealtBar
+
+
+
+Coin
+
+
+Abilities
+- AbilitiesAffect
+{
+	Stun
+}
+
+Loot
+
+
+
+ToastMessageSystem
