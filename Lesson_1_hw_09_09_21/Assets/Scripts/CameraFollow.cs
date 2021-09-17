@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject CatWarrior;
+    private GameObject CatWarrior;
     private Vector3 offset;
 
     void Start()
     {
-        CatWarrior = GameObject.FindGameObjectWithTag("CatWarrior");
+        // it is a wrong way, i fix this
+        // CatWarrior = GameObject.FindGameObjectWithTag("CatWarrior");
+        
+        // correct way to find objects
+        CatWarrior = GameObject.Find("CatWarrior");
+        
         offset = transform.position - CatWarrior.transform.position;
     }
 

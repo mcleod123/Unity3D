@@ -5,8 +5,12 @@ using UnityEngine;
 public class CatMoves : MonoBehaviour
 {
 
-    [SerializeField] private float _speed = 2.5f;
-    private float positionX, positionZ;
+    [SerializeField] private float _speed = 3.5f;
+
+    private float _positionX;
+    private float _positionZ;
+
+    private float _restrictCoordinates = 9.5f;
 
 
     // Start is called before the first frame update
@@ -27,6 +31,7 @@ public class CatMoves : MonoBehaviour
         {
             Motion(Vector3.left);
         }
+
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -86,33 +91,33 @@ public class CatMoves : MonoBehaviour
     {
 
         // get cat hero coordinates
-        positionX = transform.position.x;
-        positionZ = transform.position.z;
+        _positionX = transform.position.x;
+        _positionZ = transform.position.z;
 
-        Debug.Log(positionZ.ToString());
+        Debug.Log(_positionZ.ToString());
 
 
         // checking if movement is allowed
 
         // X Axis restrict
-        if ( positionX >= 9.5 && direction.Equals(Vector3.right))
+        if (_positionX >= _restrictCoordinates && direction.Equals(Vector3.right))
         {
             return false;
         }
 
-        if (positionX <= -9.5 && direction.Equals(Vector3.left))
+        if (_positionX <= - _restrictCoordinates && direction.Equals(Vector3.left))
         {
             return false;
         }
 
 
         // Z Axis restrict
-        if (positionZ >= 9.5 && direction.Equals(Vector3.forward))
+        if (_positionZ >= _restrictCoordinates && direction.Equals(Vector3.forward))
         {
             return false;
         }
 
-        if (positionZ <= -9.5 && direction.Equals(Vector3.back))
+        if (_positionZ <= - _restrictCoordinates && direction.Equals(Vector3.back))
         {
             return false;
         }

@@ -768,7 +768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287ed31067fb6c447a2307416af408d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CatWarrior: {fileID: 0}
 --- !u!1 &1092501732
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +876,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100132, guid: 2c76b8ea436b83747994eae7462a8d69, type: 3}
       propertyPath: m_Name
-      value: Cat_Warrior
+      value: CatWarrior
       objectReference: {fileID: 0}
     - target: {fileID: 100132, guid: 2c76b8ea436b83747994eae7462a8d69, type: 3}
       propertyPath: m_TagString
@@ -1013,7 +1012,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.22115532
+        value: 0.39856926
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1021,8 +1020,17 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.6710435
-        value: 0.06729947
+        time: 0.30492258
+        value: 0.14999145
+        inSlope: 1.6648428
+        outSlope: 1.6648428
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.49099538
+        value: 0.7662173
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1030,8 +1038,17 @@ TrailRenderer:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.63137543
+        value: 0.09409961
+        inSlope: -2.1987414
+        outSlope: -2.1987414
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 1
-        value: 0.014419556
+        value: 0.21334839
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1043,7 +1060,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 0.046749115, a: 1}
+      key0: {r: 0, g: 1, b: 0.99999976, a: 1}
       key1: {r: 0.4198113, g: 1, b: 0.51334465, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -1072,7 +1089,7 @@ TrailRenderer:
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
-    alignment: 0
+    alignment: 1
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
@@ -1210,17 +1227,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: use WSAD
+  m_text: vse WSAD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255470
-  m_fontColor: {r: 0.43254662, g: 1, b: 0, a: 1}
+    rgba: 4278203135
+  m_fontColor: {r: 1, g: 0.19761251, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1243,7 +1260,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 33
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1308,7 +1325,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1337,7 +1354,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969807923}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: -12.88}
   m_LocalScale: {x: 0.0625, y: 0.11111112, z: 1}
   m_Children: []
   m_Father: {fileID: 378063019}
@@ -1345,7 +1362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.058750033, y: -0.5977781}
+  m_AnchoredPosition: {x: 0.058750033, y: -0.562}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2113824278 stripped
