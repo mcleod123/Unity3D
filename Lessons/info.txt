@@ -1,0 +1,50 @@
+Всем привет! Скидываю материалы нашего вчерашнего занятия:
+https://docs.google.com/presentation/d/1FUUt59YNM_Un5jKxqqsYMX-tefveYzHUgw4YPjOcqhU/edit?usp=sharing
+
+Домашнее задание:
+ - Завести аккаунт на GitHub или bitbucket
+ - Добавить проект 1-го домашнего задания и исправить в нём ошибки по код стайлу, залить проект на сервер и добавить меня в свой проект, чтобы я его видел
+ - найти аналог выбранного жанра игры (2-3 игры), выписать основные моменты игры (фичи)
+В связи с тем, что мало времени на поиск, время сдачи сместилось,  задание нужно выполнить до четверга 16 сентября до 12:00. ВАЖНО! ТЗ которое я дал, это как пример, ТЗ мы не пишем (пока). Нужно сделать документ, в котором у вас будет ссылка на игру (youtube или маркет), описание функционала, который вы хотите повторить из игры
+
+Предлагаю к следующему занятию прочитать дополнительный материал по событиям и делегатам, что это такое и как они работают:
+- https://metanit.com/sharp/tutorial/3.13.php
+
+
+Напоминаю, у кого какой проект:
+Дробиняк Владимир Платформер
+Драч Владимир Платформер
+Кравец Игорь SHMUP
+Лещенко Влас Платформер
+Казьмин Артём SHMUP
+Баланик Юлия Платформер
+Слисенко Дмитрий SHMUP
+Козаков Марк Платформер
+Голованов Стас Brick the Ball
+Кича Александр Brick the Ball
+
+Остальные ребята, кого нет по умолчанию берут Brick the Ball
+Если есть желания можно выбрать другой жанр
+
+Ссылки на примеры игр по жанрам, что я вам дал, чтобы вы могли для себя что-то выбрать или найти аналоги:
+- Платформеры:
+  - https://www.youtube.com/watch?v=aErbuv51FUk&ab_channel=ZaffreRevolution
+  - https://www.youtube.com/watch?v=Qa8CHiV9Qtw&ab_channel=WhatCultureGaming
+  - https://www.youtube.com/watch?v=E_ZaTTM16TQ&ab_channel=TheArtistMarkFlynn
+- Brick the Ball (Arcanoid, breakout):
+  - https://www.youtube.com/watch?v=vlZPh0pCPnI&ab_channel=Arkanoid%26BreakoutGamesCollection%21
+  - https://www.youtube.com/watch?v=Th-Z6QQ5AOQ&ab_channel=WorldofLongplays
+  - https://www.youtube.com/watch?v=1nzyWpV8pW0&ab_channel=PurebredPenguin
+  - https://www.youtube.com/watch?v=7KBS0Zt6VwY&ab_channel=Isotope244
+  - https://www.youtube.com/watch?v=NqvyO3yqZhE&ab_channel=AndreyUgolnik
+  - https://www.youtube.com/watch?v=ta_0RkDikkI&ab_channel=AndreyUgolnik
+  - https://www.youtube.com/watch?v=t4-K7D_47qY&ab_channel=Zaxtor99
+  - https://www.youtube.com/watch?v=x39hTlOSBnw&ab_channel=POP2Review
+  - https://www.youtube.com/watch?v=fo1M_pYfvqI&ab_channel=SnakeULTIMATE
+- SHMUP - Shot'em up:
+  - https://www.youtube.com/watch?v=R0mb62phlKU&ab_channel=WatchMojo.com
+  - https://www.youtube.com/watch?v=DWBTzHytG68&ab_channel=renegadeviking
+  - https://www.youtube.com/watch?v=zZ13BKQT--I&ab_channel=DonTango
+  - https://www.youtube.com/watch?v=s1on9jJJgzY&ab_channel=DonTango
+  - https://www.youtube.com/watch?v=klA6TY-3eLo&ab_channel=AndroidGamespot
+  - https://www.youtube.com/watch?v=pZRxLyL8_Rc&ab_channel=top.misc.lists
