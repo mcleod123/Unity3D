@@ -2,66 +2,116 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum GameStateEnumerator
+{
+    GameMenuPaused,
+    GameIsStarting
+}
+
+
 public class Ship : MonoBehaviour
 {
 
+    public static GameStateEnumerator _state;
+
     [SerializeField] private float _speed = 3.5f;
 
-    private float _positionX;
-    private float _positionZ;
 
-    private float _restrictCoordinates = 9.5f;
+    // private float _positionX;
+    // private float _positionZ;
 
+    private SpriteRenderer spriteRenderer;
+
+    public Sprite _shipSpriteNormal = Resources.Load<Sprite>("Sprites/ship");
+    public Sprite _shipSpriteTurnLeft = Resources.Load<Sprite>("Sprites/ship_turn_left");
+    public Sprite _shipSpriteTurnRight = Resources.Load<Sprite>("Sprites/ship_turn_right");
 
     // Start is called before the first frame update
     void Start()
     {
 
+        // default state
+        //_state = GameStateEnumerator.GameMenuPaused;
+        _state = GameStateEnumerator.GameIsStarting;
+
+        // ship sprites
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = _shipSpriteNormal;
+
+
+        // ShipHidingPausedGame();
+
     }
+
 
     // Update is called once per frame
     void Update()
     {
 
+        if(_state == GameStateEnumerator.GameMenuPaused)
+        {
 
-        if (Input.GetKey(KeyCode.D))
+        } 
+        else
+        {
+           // ShipReadyToGame();
+            //ShipMovement();
+        }
+
+        ShipMovement();
+
+    }
+
+
+    private void ShipMovement()
+    {
+
+        // if ship maneuvers
+        bool _isShipManeuvers = false;
+
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             Motion(Vector3.right);
+            _isShipManeuvers = true;
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             Motion(Vector3.left);
+            _isShipManeuvers = true;
         }
 
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             Motion(Vector3.forward);
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             Motion(Vector3.back);
         }
 
 
 
+        if (_isShipManeuvers == false)
+        {
+            spriteRenderer.sprite = _shipSpriteNormal;
+        }
+
     }
+      
 
     private void Motion(Vector3 direction)
     {
 
-        // check move restriction
-        /*
-        if (!MoveRestrictChecker(direction))
-        {
-            return;
-        }
-        */
+        // if turn left or right
+        ShipBodyTransform(direction);
 
 
         if (direction.Equals(Vector3.right))
         {
             transform.Translate(Vector3.right * _speed * Time.deltaTime);
+
         }
 
         if (direction.Equals(Vector3.left))
@@ -84,53 +134,49 @@ public class Ship : MonoBehaviour
         }
 
 
-        
-
-
-
     }
 
 
-    private bool MoveRestrictChecker(Vector3 direction)
+    // if ship move left or right - scale ship body
+    private void ShipBodyTransform(Vector3 direction)
     {
 
-        // get cat hero coordinates
-        _positionX = transform.position.x;
-        _positionZ = transform.position.z;
-
-
-        // checking if movement is allowed
-
-        // X Axis restrict
-        if (_positionX >= _restrictCoordinates && direction.Equals(Vector3.right))
+        if (direction.Equals(Vector3.right))
         {
-            return false;
-        }
+            spriteRenderer.sprite = _shipSpriteTurnRight;
 
-        if (_positionX <= -_restrictCoordinates && direction.Equals(Vector3.left))
-        {
-            return false;
         }
 
 
-        // Z Axis restrict
-        if (_positionZ >= _restrictCoordinates && direction.Equals(Vector3.forward))
+        if (direction.Equals(Vector3.left))
         {
-            return false;
-        }
-
-        if (_positionZ <= -_restrictCoordinates && direction.Equals(Vector3.back))
-        {
-            return false;
+            spriteRenderer.sprite = _shipSpriteTurnLeft;
         }
 
 
+        if (
+                    direction.Equals(Vector3.forward) 
+                ||  direction.Equals(Vector3.back)
+            )
+        {
+            spriteRenderer.sprite = _shipSpriteNormal;
+        }
 
-        // else move is allow
-        return true;
+
 
     }
 
 
+    private void ShipReadyToGame()
+    {
+        transform.position = new Vector3(0f, 3f);
+
+    }
+
+    private void ShipHidingPausedGame()
+    {
+        transform.position = new Vector3(0f, -200f);
+
+    }
 
 }

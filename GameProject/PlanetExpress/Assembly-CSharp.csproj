@@ -53,7 +53,11 @@
     <UnityVersion>2019.4.30f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BackgroundManage.cs" />
+    <Compile Include="Assets\Scripts\GameState.cs" />
     <Compile Include="Assets\Scripts\Ship.cs" />
+    <Compile Include="Assets\Scripts\ShipFlame.cs" />
+    <Compile Include="Assets\Scripts\StartGameWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
