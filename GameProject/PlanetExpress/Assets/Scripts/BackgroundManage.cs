@@ -6,14 +6,37 @@ using UnityEngine;
 
 public class BackgroundManage : MonoBehaviour
 {
+
+    private bool _gameIsPlaying = false;
+
     [SerializeField] List<GameObject> _particlesBackground;
+
+
+
+    private void Awake()
+    {
+        GameEvents.GameStartEvent += StartBackgroundPlaying;
+    }
+
+
+    private void OnDestroy()
+    {
+        GameEvents.GameStartEvent -= StartBackgroundPlaying;
+    }
+
+    private void StartBackgroundPlaying()
+    {
+        ParticleOn();
+        _gameIsPlaying = true;
+    }
+
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        // ParticleOff();
+        ParticleOff();
     }
 
 

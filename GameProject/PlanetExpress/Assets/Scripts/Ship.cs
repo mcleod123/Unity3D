@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum GameStateEnumerator
-{
-    GameMenuPaused,
-    GameIsStarting
-}
-
 
 public class Ship : MonoBehaviour
 {
 
-    public static GameStateEnumerator _state;
+    private bool _gameIsPlaying = false;
 
     [SerializeField] private float _speed = 3.5f;
 
+    [SerializeField] private float _gamePositionCoordinatesX = 0f;
+    [SerializeField] private float _gamePositionCoordinatesY = 3f;
 
-    // private float _positionX;
-    // private float _positionZ;
+    [SerializeField] private float _hidePositionCoordinatesX = 0f;
+    [SerializeField] private float _hidePositionCoordinatesY = -10f;
 
     private SpriteRenderer spriteRenderer;
 
@@ -27,20 +23,31 @@ public class Ship : MonoBehaviour
     public Sprite _shipSpriteTurnLeft = Resources.Load<Sprite>("Sprites/ship_turn_left");
     public Sprite _shipSpriteTurnRight = Resources.Load<Sprite>("Sprites/ship_turn_right");
 
+
+
+    private void Awake()
+    {
+        GameEvents.GameStartEvent += StartShipMovementPlaying;
+    }
+
+
+    private void OnDestroy()
+    {
+        GameEvents.GameStartEvent -= StartShipMovementPlaying;
+    }
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-
-        // default state
-        //_state = GameStateEnumerator.GameMenuPaused;
-        _state = GameStateEnumerator.GameIsStarting;
 
         // ship sprites
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = _shipSpriteNormal;
 
-
-        // ShipHidingPausedGame();
+        ShipHidingPausedGame();
 
     }
 
@@ -48,21 +55,20 @@ public class Ship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(_state == GameStateEnumerator.GameMenuPaused)
+        
+        if(_gameIsPlaying == true)
         {
-
-        } 
-        else
-        {
-           // ShipReadyToGame();
-            //ShipMovement();
+            ShipMovement();
         }
-
-        ShipMovement();
 
     }
 
+
+    private void StartShipMovementPlaying()
+    {
+        ShipReadyToGame();
+        _gameIsPlaying = true;
+    }
 
     private void ShipMovement()
     {
@@ -169,13 +175,15 @@ public class Ship : MonoBehaviour
 
     private void ShipReadyToGame()
     {
-        transform.position = new Vector3(0f, 3f);
+        //transform.position = new Vector3(_gamePositionCoordinatesX, _gamePositionCoordinatesY);
+        transform.position = new Vector3(0.5f, 0f);
 
     }
 
     private void ShipHidingPausedGame()
     {
-        transform.position = new Vector3(0f, -200f);
+       // transform.position = new Vector3(_hidePositionCoordinatesX, _hidePositionCoordinatesY);
+        transform.position = new Vector3(0f, -20f);
 
     }
 

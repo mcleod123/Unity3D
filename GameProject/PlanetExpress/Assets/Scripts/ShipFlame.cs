@@ -30,7 +30,7 @@ public class ShipFlame : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-           // FlameMotion(Vector3.left);
+            // FlameMotion(Vector3.left);
         }
 
     }
