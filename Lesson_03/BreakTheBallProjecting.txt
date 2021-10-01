@@ -1,0 +1,86 @@
+Break The Ball
+- Platform
+{
+- MovementSpeed;
+- LivesCoint;
+ - Enlarge();
+ - Reduse();
+}
+
+- Ball
+{
+- Speed;
+}
+
+- Brick
+{
+- HitPoint;
+- Sprite
+- ScorePoints
+}
+
+- Weapon
+{
+	- fireRate
+}
+Bullet
+{
+	- speed
+	- Damage
+}
+
+BrickType
+{	
+	Simple,
+	WithBomb,
+}
+
+- ScorePoints
+{
+	currentScorePoint
+	MaximumScorePoint
+	AddPoints();
+}
+
+- ScorePointsMultiplier
+{
+- currentMultiplayer
+- CalculateMultiplayer();
+}
+
+- BonusType
+{
+	TripleBall,
+	EnlargePlatformx2,
+	RedusePlatformex2,
+	Wall
+}
+
+- Energy
+{
+	int MaxValue
+	- currentBalue
+	- OnMaxValueReached
+}
+
+Level
+{
+	Brick
+	OnAllBrickDestroyed
+	Platform
+	ScorePointsMultiplier
+	
+	- EnableWall();
+	- DisableWall();
+	
+}
+
+GameController
+{	
+	CurrentLevel
+}
+
+BonusApplyer
+{
+	Apply(BonusType)
+}

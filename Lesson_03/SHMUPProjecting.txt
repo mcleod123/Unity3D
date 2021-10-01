@@ -1,0 +1,71 @@
+Plane
+- MovementSpeed;
+- int Lives;
+- int HitPoint;
+
+- LocomotionSystem();
+
+PlayerPlane: Plane
+{
+	Weapon
+	- Fire()
+	- AddBonus (Bonus)
+	- onPlayerDead
+};
+
+EnemyPlane: Plane
+{
+	- ScorePoint;
+}
+Enum EnemyType
+{
+	OdnoMotor,
+	Kukuruzka,
+	Beplane
+}
+
+Weapon
+- Firerate
+- Bullet
+- Fire();
+WeaponType
+{
+	OneShot,
+	DoubleShot,
+	QuadShot,
+	Missle,
+	
+}
+
+
+Bullet
+- Speed;
+- DamagePoint
+- OnDamageRecieve
+
+BulletEffect
+{
+	Fireball,
+	///
+}
+
+ScorePoint
+- Points
+- AddPoint()
+
+Level
+{
+	List<EnemyPlane>
+	event AllEnemyKilled
+}
+
+GameController
+{
+	Concrete Level
+}
+
+Bonus
+{	
+	//neuyazvimost
+	// doubleDamage
+}
