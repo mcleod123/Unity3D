@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMoveController : MonoBehaviour
 {
-    [SerializeField] private float _speed = 3.5f;
+    [SerializeField] private float _speed = 1f;
 
 
 
@@ -19,43 +19,55 @@ public class PlayerMoveController : MonoBehaviour
     {
 
 
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+
+
+        if (Input.GetKey(KeyCode.D))
         {
-            Motion(Vector3.right);
+            _speed = 9f;
+            Motion(Vector3.right, _speed);
         }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.A))
         {
-            Motion(Vector3.left);
+            _speed = 9f;
+            Motion(Vector3.left, _speed);
         }
+
 
 
         if (Input.GetKey(KeyCode.W))
         {
-            Motion(Vector3.forward);
+            _speed = 9f;
+            Motion(Vector3.forward, _speed);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            Motion(Vector3.back);
+            _speed = 9f;
+            Motion(Vector3.back, _speed);
         }
 
 
-
+        if (Input.GetKey(KeyCode.Space))
+        {
+            _speed = 90f;
+            Motion(Vector3.forward, _speed);
+        }
 
     }
 
-    private void Motion(Vector3 direction)
+    private void Motion(Vector3 direction, float localSpeed)
     {
+
 
         if (direction.Equals(Vector3.right))
         {
            // transform.rotation = Quaternion.identity;
-            transform.Rotate(0, 3, 0);
+            transform.Rotate(0, 2, 0);
         } 
 
         if (direction.Equals(Vector3.left))
         {
             //transform.rotation = Quaternion.identity;
-            transform.Rotate(0, -3, 0);
+            transform.Rotate(0, -2, 0);
         }
         
 
@@ -63,17 +75,17 @@ public class PlayerMoveController : MonoBehaviour
         if (direction.Equals(Vector3.back))
         {
             //transform.rotation = Quaternion.identity;
-            transform.Translate(Vector3.back * _speed * Time.deltaTime);
+            transform.Translate(Vector3.back * localSpeed * Time.deltaTime);
         }
 
         if (direction.Equals(Vector3.forward))
         {
-            //transform.rotation = Quaternion.identity;
-            transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+            // transform.rotation = Quaternion.identity;
+            transform.Translate(Vector3.forward * localSpeed * Time.deltaTime);
         }
 
 
-
+        Debug.Log(_speed.ToString());
 
 
     }
@@ -81,6 +93,28 @@ public class PlayerMoveController : MonoBehaviour
 
 
 
+
+
+    /*
+    private void RotatePlayer(Vector3 direction)
+    {
+
+
+        if (direction.Equals(Vector3.right))
+        {
+            transform.Rotate(0, 3, 0);
+        }
+
+        if (direction.Equals(Vector3.left))
+        {
+            transform.Rotate(0, -3, 0);
+        }
+
+       
+
+    }
+
+    */
 
 
 }
