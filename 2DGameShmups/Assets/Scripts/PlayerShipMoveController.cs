@@ -10,12 +10,20 @@ public class PlayerShipMoveController : MonoBehaviour
     [SerializeField] public GameObject _bullet;
     [SerializeField] public GameObject _rocket;
     [SerializeField] public GameObject _startMuzzle;
+
     private Vector3 _muzzlePosition;
 
-    private float _restrictedCoordX = 12f;
+    [SerializeField] private AudioClip _shootSound;
+
+    private float _restrictedCoordX = 11f;
     private float _restrictedCoordTopZ = 10f;
     private float _restrictedCoordBottomZ = 2f;
 
+    private float _frequencyMainWeaponFire = 0.2f;
+    private float _frequencyRocketWeaponFire = 1f;
+
+    private bool _canRocketFire = true;
+    private bool _canMainWeaponFire = true;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +64,7 @@ public class PlayerShipMoveController : MonoBehaviour
         // Accelerate!
         if (Input.GetKey(KeyCode.E))
         {
-            _speed = 12f;
+            _speed = 14f;
             Motion(Vector3.forward, _speed);
         }
 
@@ -64,10 +72,11 @@ public class PlayerShipMoveController : MonoBehaviour
         // Fire!
         if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
         {
-            // _speed = 90f;
-            // Motion(Vector3.forward, _speed);
+            if(_canMainWeaponFire)
+            {
+                StartCoroutine(MainWeaponFireCoroutine());
+            }
 
-            MainWeaponFire();
 
         }
 
@@ -75,10 +84,11 @@ public class PlayerShipMoveController : MonoBehaviour
         // Rockets!
         if (Input.GetKey(KeyCode.Q) || Input.GetMouseButtonDown(1))
         {
-            // _speed = 90f;
-            // Motion(Vector3.forward, _speed);
-
-            RocketWeaponFire();
+            if(_canRocketFire)
+            {
+                StartCoroutine(RocketWeaponFireCoroutine());
+            }
+ 
 
         }
 
@@ -148,6 +158,15 @@ public class PlayerShipMoveController : MonoBehaviour
     }
 
 
+    IEnumerator MainWeaponFireCoroutine()
+    {
+        _canMainWeaponFire = false;
+        MainWeaponFire();
+        AudioManager.PlaySFX(SFXType.LaserShoot);
+        yield return new WaitForSeconds(_frequencyMainWeaponFire);
+        _canMainWeaponFire = true;
+    }
+
     void MainWeaponFire()
     {
         _muzzlePosition = GameObject.Find("Muzzle").transform.position;
@@ -163,6 +182,15 @@ public class PlayerShipMoveController : MonoBehaviour
 
     }
 
+
+    IEnumerator RocketWeaponFireCoroutine()
+    {
+        _canRocketFire = false;
+        RocketWeaponFire();
+        AudioManager.PlaySFX(SFXType.RocketShoot);
+        yield return new WaitForSeconds(_frequencyRocketWeaponFire);
+        _canRocketFire = true;
+    }
 
     void RocketWeaponFire()
     {
